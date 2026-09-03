@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', fontFamily: 'sans-serif' }}>
-      <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Health App</h1>
+      <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Health App v2</h1>
       <p style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
         Backend Status: <strong style={{ color: status === 'healthy' ? 'green' : 'red' }}>{status}</strong>
       </p>
