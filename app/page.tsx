@@ -7,7 +7,7 @@ export default function Home() {
   const [dbStatus, setDbStatus] = useState<string>('Loading...');
 
   useEffect(() => {
-    fetch('http://localhost:8000/health')
+    fetch('http://13.48.156.60:8000/health')
       .then((res) => res.json())
       .then((data) => {
         setStatus(data.status);
