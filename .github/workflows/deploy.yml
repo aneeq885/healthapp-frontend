@@ -24,11 +24,11 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t aneeq885/healthapp-frontend:latest .
+          docker build -t aneeq91/healthapp-frontend:latest .
 
       - name: Push Docker Image
         run: |
-          docker push aneeq885/healthapp-frontend:latest
+          docker push aneeq91/healthapp-frontend:latest
 
 
   # =========================
@@ -47,7 +47,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
 
           script: |
-            docker pull aneeq885/healthapp-frontend:latest
+            docker pull aneeq91/healthapp-frontend:latest
 
             docker stop healthapp-frontend || true
             docker rm healthapp-frontend || true
@@ -57,4 +57,4 @@ jobs:
               --network healthapp-net \
               -p 3001:3000 \
               --restart always \
-              aneeq885/healthapp-frontend:latest
+              aneeq91/healthapp-frontend:latest
