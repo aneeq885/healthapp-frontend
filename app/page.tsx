@@ -10,10 +10,11 @@ export default function Home() {
     fetch('http://13.48.156.60:8000/health')
       .then((res) => res.json())
       .then((data) => {
-        setStatus(data.status);
-        setDbStatus(data.database);
+        setStatus(data.status || 'healthy');
+        setDbStatus(data.database || 'disconnected');
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error('Fetch error:', err);
         setStatus('Error connecting to backend');
         setDbStatus('N/A');
       });
@@ -22,7 +23,7 @@ export default function Home() {
   return (
     <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', fontFamily: 'sans-serif' }}>
       <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Health App v2</h1>
-      <p style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
+      <p style={{ fontSize: '1.25rem' }}>
         Backend Status: <strong style={{ color: status === 'healthy' ? 'green' : 'red' }}>{status}</strong>
       </p>
       <p style={{ fontSize: '1.25rem' }}>
